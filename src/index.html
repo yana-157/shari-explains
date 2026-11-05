@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shari Explains — Make sense of the headlines.</title>
+    <meta name="description" content="{{SITE_DESCRIPTION}}" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta property="og:title" content="Shari Explains" />
+    <meta
+      property="og:description"
+      content="Make sense of the headlines. Law, politics, and world events, explained."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="./" aria-label="Shari Explains home"
+        >shari<span>explains<span class="orange">.</span></span></a
+      >
+      <button
+        class="menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu <span>＋</span>
+      </button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#explainers">The explainers</a
+        ><a href="#research">Research notes</a><a href="#about">About Shari</a
+        ><a href="#resources">Resources</a>
+      </nav>
+      <a
+        class="button button-small request-link header-request"
+        href="{{REQUEST_FORM_URL}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Request a topic <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-star" aria-hidden="true">✳</span> Law. Politics.
+            The world around us.
+          </p>
+          <h1 id="hero-title">
+            Big headlines.<br />Let’s <em>make sense</em><br />of them.
+          </h1>
+          <p class="hero-intro">{{HERO_INTRO}}</p>
+          <a class="button" href="#explainers"
+            >Explore the explainers <span aria-hidden="true">↘</span></a
+          >
+          <span class="hero-aside">Curiosity looks good on you.</span>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="paper paper-back">
+            <span>THE BIG PICTURE</span>
+            <div class="paper-rules"></div>
+            <p>more context.<br />less confusion.</p>
+            <div class="paper-rules"></div>
+          </div>
+          <div class="paper paper-front">
+            <span class="paper-kicker">A FIELD GUIDE TO</span>
+            <p>the world<br />we live in.</p>
+            <svg class="scale-art" viewBox="0 0 280 210" fill="none">
+              <path
+                d="M140 29v147m-49 15h98M120 176h40M59 67l81-20 81 20M59 67l-30 67h60L59 67Zm162 0-30 67h60l-30-67Z"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M29 134c3 32 56 32 60 0m102 0c3 32 56 32 60 0"
+                fill="currentColor"
+              />
+              <circle cx="140" cy="29" r="7" fill="currentColor" />
+              <path d="m114 58 52-23" stroke="currentColor" stroke-width="3" />
+            </svg>
+            <div class="paper-bottom">
+              SHARI EXPLAINS <span>EST. 2024</span>
+            </div>
+          </div>
+          <div class="round-stamp">
+            <span>READ. QUESTION.</span><b>✳</b><span>UNDERSTAND.</span>
+          </div>
+          <div class="annotation">
+            a little clarity<br />goes a long way <span>⤴</span>
+          </div>
+        </div>
+      </section>
+      <div class="topic-ribbon">
+        <div class="wrap">
+          <span>Big questions, broken down.</span
+          ><span>{{CATEGORY_RIBBON}}</span>
+        </div>
+      </div>
+      <section
+        id="explainers"
+        class="section wrap"
+        aria-labelledby="explainers-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The reading list</p>
+            <h2 id="explainers-title">Consider this <em>explained.</em></h2>
+          </div>
+          <p>
+            Start with a headline.<br />Leave with a little more understanding.
+          </p>
+        </div>
+        <div class="archive-controls">
+          <div class="filters" role="group" aria-label="Filter by topic">
+            <button data-category="All" aria-pressed="true">All topics</button
+            >{{CATEGORY_FILTERS}}
+          </div>
+          <label class="search"
+            ><span aria-hidden="true">⌕</span
+            ><span class="sr-only">Search explainers</span
+            ><input
+              type="search"
+              id="search"
+              placeholder="Find an explainer…"
+              autocomplete="off"
+          /></label>
+        </div>
+        <p class="result-count" id="result-count" role="status"></p>
+        <div class="post-grid" id="post-grid">
+          <p class="loading-message">Loading the reading list…</p>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>
+          <h3>No explainers found—yet.</h3>
+          <p>Try another search, or suggest a topic you’d like us to cover.</p>
+          <button class="text-link" id="clear-search">
+            Clear filters <span>↗</span>
+          </button>
+        </div>
+        <noscript
+          ><p>
+            Please enable JavaScript to use search.
+            <a href="posts/index.html">Read all articles here.</a>
+          </p></noscript
+        >
+      </section>
+      <section
+        id="research"
+        class="research-section section"
+        aria-labelledby="research-title"
+      >
+        <div class="wrap research-layout">
+          <div>
+            <p class="eyebrow">Behind the explainer</p>
+            <h2 id="research-title">
+              Don’t just take<br />our word <em>for it.</em>
+            </h2>
+            <p>
+              Good questions deserve good sources. Read the original documents,
+              explore the context, and keep digging.
+            </p>
+            <span class="handwritten">Follow the footnotes. ↘</span>
+          </div>
+          <div class="research-list">
+            <a
+              href="https://www.congress.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="index-number">01</span>
+              <div>
+                <span class="eyebrow">Legislation · Primary source</span>
+                <h3>Read the bill, beyond the headline.</h3>
+                <p>
+                  Bill text, legislative actions, and congressional records.
+                </p>
+              </div>
+              <span class="arrow">↗</span></a
+            >
+            <a
+              href="https://constitution.congress.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="index-number">02</span>
+              <div>
+                <span class="eyebrow">Law & rights · Primary source</span>
+                <h3>Go back to the Constitution.</h3>
+                <p>The Constitution, amendments, and legal analysis.</p>
+              </div>
+              <span class="arrow">↗</span></a
+            >
+            <a
+              href="https://www.un.org/en/about-us/un-charter"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="index-number">03</span>
+              <div>
+                <span class="eyebrow">World events · Primary source</span>
+                <h3>Start with the original framework.</h3>
+                <p>The United Nations Charter, chapter by chapter.</p>
+              </div>
+              <span class="arrow">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        id="about"
+        class="section wrap about-layout"
+        aria-labelledby="about-title"
+      >
+        <div class="about-note">
+          <span class="eyebrow">A note from the curious side</span
+          ><span class="note-star" aria-hidden="true">✳</span>
+          <p>
+            Understanding<br />the world starts<br />with asking<br /><em
+              >better questions.</em
+            >
+          </p>
+          <span class="note-signature">shari explains.</span>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">The person behind the posts</p>
+          <h2 id="about-title">Hi, I’m <em>Shari.</em></h2>
+          <p class="large-copy">
+            Curious about the law.<br />Even more curious about the world.
+          </p>
+          <p>{{ABOUT_INTRO}}</p>
+          <p>
+            This is a space for making complicated topics more approachable,
+            connecting the dots, and finding the context that a headline can’t
+            always give you.
+          </p>
+          <div class="about-signoff">
+            <span>Keep asking. Keep learning.</span
+            ><a
+              data-instagram
+              href="{{INSTAGRAM_URL}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Find me on Instagram ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="resources" class="section resources-section">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Stay curious</p>
+              <h2>Keep the learning <em>going.</em></h2>
+            </div>
+            <p>
+              A few places to read, watch, and build<br />your own
+              understanding.
+            </p>
+          </div>
+          <div class="resource-grid">
+            <a
+              href="https://www.pbs.org/newshour/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="resource-icon pbs">PBS</span
+              ><span class="eyebrow">Watch & read</span>
+              <h3>PBS NewsHour <span>↗</span></h3>
+              <p>
+                Reporting and conversations about the stories shaping the world.
+              </p></a
+            >
+            <a
+              href="https://www.npr.org/sections/politics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="resource-icon npr"><i>n</i><i>p</i><i>r</i></span
+              ><span class="eyebrow">Listen & read</span>
+              <h3>NPR Politics <span>↗</span></h3>
+              <p>
+                Political reporting, interviews, and audio for your everyday
+                reading list.
+              </p></a
+            >
+            <a
+              href="https://www.politico.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="resource-icon politico">POLITICO</span
+              ><span class="eyebrow">Follow the news</span>
+              <h3>POLITICO <span>↗</span></h3>
+              <p>
+                A closer look at politics, public policy, and the people making
+                decisions.
+              </p></a
+            >
+            <a
+              href="https://www.youtube.com/@crashcourse"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="resource-icon crash">crash course</span
+              ><span class="eyebrow">Build the basics</span>
+              <h3>Crash Course <span>↗</span></h3>
+              <p>
+                Start with approachable video lessons on history, government,
+                and more.
+              </p></a
+            >
+          </div>
+        </div>
+      </section>
+      <section id="request" class="request-section wrap">
+        <div class="request-star" aria-hidden="true">✳</div>
+        <div>
+          <p class="eyebrow">Your curiosity belongs here</p>
+          <h2>What should we <br />explain <em>next?</em></h2>
+        </div>
+        <div>
+          <p>
+            A headline that doesn’t add up? A question you’ve been meaning to
+            ask? Put it on our radar.
+          </p>
+          <a
+            class="button request-link"
+            href="{{REQUEST_FORM_URL}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Request a topic <span>↗</span></a
+          ><span class="request-caption"
+            >A quick Google Form. No account needed.</span
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-main">
+        <a class="wordmark" href="./">shari<span>explains.</span></a>
+        <p>Less scrolling past.<br />More understanding.</p>
+        <div>
+          <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener noreferrer"
+            >Instagram ↗</a
+          ><a href="#request">Topic requests & contact ↗</a
+          ><a href="studio/">Post Studio ↗</a>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>© <span id="year">2026</span> Shari Explains</span
+        ><span>For education and discussion. Not individual legal advice.</span
+        ><a href="#main">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

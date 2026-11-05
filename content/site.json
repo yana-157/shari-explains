@@ -1,0 +1,31 @@
+{
+  "title": "Shari Explains",
+  "description": "Law, politics, and world events. A little less confusing.",
+  "instagramUrl": "https://www.instagram.com/shari_explainslaw/",
+  "requestFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdzPemHVRz1wI0mypRi1w7rdW-VyVFy8qBlwlFCcXhLea2CfA/viewform",
+  "repositoryUrl": "https://github.com/yana-157/shari-explains",
+  "categories": [
+    {
+      "id": "law-rights",
+      "label": "Law & rights"
+    },
+    {
+      "id": "politics",
+      "label": "Politics"
+    },
+    {
+      "id": "world-events",
+      "label": "World events"
+    }
+  ],
+  "heroIntro": "The context behind the news, the law behind the decisions, and the questions worth asking. Let’s figure it out together.",
+  "aboutIntro": "I started Shari Explains to educate myself and others about the law. My interest in law and politics grew into a place to explore big questions—and share what I’m learning along the way.",
+  "theme": {
+    "background": "#f5f2eb",
+    "text": "#242a29",
+    "accent": "#dc4927",
+    "muted": "#626760",
+    "soft": "#e9e9df",
+    "fontScale": 1
+  }
+}

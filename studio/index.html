@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Post Studio — Shari Explains</title>
+    <link rel="icon" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="studio.css" />
+    <link rel="stylesheet" href="../theme.css" />
+    <script src="studio.js" type="module"></script>
+  </head>
+  <body>
+    <header class="studio-header">
+      <a class="wordmark" href="../">shari<span>explains.</span></a
+      ><span class="studio-label">POST STUDIO</span
+      ><a href="../" target="_blank" class="text-link">View site ↗</a>
+    </header>
+    <main class="studio-shell">
+      <div class="studio-intro">
+        <div>
+          <p class="eyebrow">A little room to write</p>
+          <h1>Your words.<br /><em>All the formatting, handled.</em></h1>
+        </div>
+        <p>
+          Write, preview, save.<br />Every post gets the same editorial style.
+        </p>
+      </div>
+      <div class="studio-notice" id="connection-status" role="status">
+        Connecting to your local post folders…
+      </div>
+      <div class="studio-toolbar">
+        <label
+          >Edit a post
+          <select id="existing-post">
+            <option value="">Start a new post</option>
+          </select></label
+        ><button id="open-settings" class="quiet-button">
+          Site settings & design</button
+        ><button id="new-post" class="quiet-button">＋ New post</button
+        ><a class="quiet-button" href="../guide.html" target="_blank"
+          >Quick guide ↗</a
+        >
+      </div>
+      <div class="studio-layout">
+        <form id="post-form" class="editor-panel">
+          <div class="panel-heading">
+            <span class="eyebrow">01 / The story</span
+            ><span class="draft-status" id="draft-status">New post</span>
+          </div>
+          <label
+            >Headline <span>Make the big question clear.</span
+            ><input
+              name="title"
+              id="title"
+              maxlength="240"
+              required
+              placeholder="What does this headline actually mean?"
+          /></label>
+          <label
+            >Short introduction
+            <span>One or two sentences for the article and its card.</span
+            ><textarea
+              name="excerpt"
+              id="excerpt"
+              rows="2"
+              maxlength="500"
+              placeholder="The context you need before we get into it."
+            ></textarea>
+          </label>
+          <div class="field-row">
+            <label>Topic<select id="category"></select></label
+            ><label
+              >Publication date<input type="date" id="date" required
+            /></label>
+          </div>
+          <label
+            >Cover image<span
+              >Choose a JPG, PNG, WebP, or AVIF. Up to 8 MB.</span
+            ><input
+              type="file"
+              id="cover"
+              accept="image/jpeg,image/png,image/webp,image/avif"
+          /></label>
+          <div id="cover-info" class="field-hint"></div>
+          <label
+            >Image description<span
+              >A short description for readers using a screen reader.</span
+            ><input id="coverAlt" placeholder="Describe what the cover shows"
+          /></label>
+          <label
+            >Article text<span
+              >Paste your text. Leave a blank line between paragraphs.</span
+            ><textarea
+              id="body"
+              rows="18"
+              required
+              placeholder="Start your explainer here…"
+            ></textarea>
+          </label>
+          <div class="format-tools">
+            <button type="button" id="add-heading">＋ Section heading</button
+            ><span>Use **bold** for emphasis.</span>
+          </div>
+          <details id="caption-details">
+            <summary>Original post introduction</summary>
+            <label class="sr-only" for="caption"
+              >Original post introduction</label
+            ><textarea
+              id="caption"
+              rows="5"
+              placeholder="Optional introduction or original caption"
+            ></textarea>
+          </details>
+          <label
+            >Sources & further reading<span
+              >One per line: source name | https://example.com</span
+            ><textarea
+              id="sources"
+              rows="4"
+              placeholder="Congress.gov | https://www.congress.gov/"
+            ></textarea>
+          </label>
+          <details>
+            <summary>Post settings</summary>
+            <label
+              >Article address
+              <span
+                >Generated from the headline. Keep this unchanged after
+                publishing.</span
+              ><input
+                id="slug"
+                pattern="[a-z0-9]+(-[a-z0-9]+)*"
+                required
+                placeholder="your-article-title" /></label
+            ><label>Author<input id="author" value="Shari Explains" /></label
+            ><label
+              >Status<select id="status">
+                <option value="published">Ready for the site</option>
+                <option value="draft">
+                  Draft — keep out of the public grid
+                </option>
+              </select></label
+            ><label class="checkbox-label"
+              ><input type="checkbox" id="archived" /> Reproduced from an older
+              Instagram post</label
+            >
+          </details>
+          <div class="save-actions">
+            <button type="submit" class="button" id="save">
+              Save post <span>↓</span></button
+            ><button type="button" id="publish" class="button publish-button">
+              Publish to live site <span>↗</span>
+            </button>
+          </div>
+          <p class="save-note">
+            Save writes directly to the post’s folder and updates your local
+            site. Publish commits that post to GitHub.
+          </p>
+          <p id="save-status" role="status" class="save-status"></p>
+        </form>
+        <section class="preview-panel" aria-label="Live article preview">
+          <div class="panel-heading">
+            <span class="eyebrow">02 / Live preview</span
+            ><span class="preview-dot">Updates as you write</span>
+          </div>
+          <div class="preview-scroll">
+            <article id="article-preview"></article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <dialog id="site-settings" class="settings-dialog">
+      <form id="settings-form">
+        <div class="settings-heading">
+          <div>
+            <p class="eyebrow">One place. The whole site.</p>
+            <h2>Site settings <em>& design.</em></h2>
+          </div>
+          <button
+            type="button"
+            id="close-settings"
+            aria-label="Close site settings"
+          >
+            ×
+          </button>
+        </div>
+        <p class="settings-intro">
+          Changes here apply to all post cards, article pages, and menus. Save
+          to preview locally; publish when ready.
+        </p>
+        <h3>Categories</h3>
+        <p class="field-hint">
+          Rename a display name to update every matching post. IDs keep the
+          posts connected.
+        </p>
+        <div id="category-settings"></div>
+        <button type="button" id="add-category" class="quiet-button">
+          ＋ Add category
+        </button>
+        <details class="id-help">
+          <summary>Need to change an existing category ID?</summary>
+          <p>
+            From the repo, run
+            <code>npm run category -- rename world-events breaking-news</code>.
+            This updates the category and all affected posts together. Preview,
+            then commit the changed files. Renaming only the display name does
+            not require this step.
+          </p>
+        </details>
+        <h3>Homepage copy</h3>
+        <label
+          >Site description<textarea
+            id="setting-description"
+            rows="2"
+          ></textarea></label
+        ><label
+          >Homepage introduction<textarea
+            id="setting-heroIntro"
+            rows="3"
+          ></textarea></label
+        ><label
+          >About Shari introduction<textarea
+            id="setting-aboutIntro"
+            rows="4"
+          ></textarea>
+        </label>
+        <h3>Colors & type</h3>
+        <div class="theme-fields">
+          <label
+            >Page background<input type="color" id="theme-background" /></label
+          ><label>Main text<input type="color" id="theme-text" /></label
+          ><label
+            >Accent & buttons<input type="color" id="theme-accent" /></label
+          ><label>Secondary text<input type="color" id="theme-muted" /></label
+          ><label>Soft backgrounds<input type="color" id="theme-soft" /></label
+          ><label
+            >Overall text size (%)<input
+              type="number"
+              id="theme-fontScale"
+              min="80"
+              max="130"
+              step="5"
+          /></label>
+        </div>
+        <p class="field-hint">
+          100% is the original design. Keep text and background colors easy to
+          distinguish.
+        </p>
+        <div class="save-actions">
+          <button type="submit" class="button" id="save-settings">
+            Save site settings ↓</button
+          ><button
+            type="button"
+            class="button publish-button"
+            id="publish-settings"
+          >
+            Publish settings ↗
+          </button>
+        </div>
+        <p id="settings-status" role="status" class="save-status"></p>
+      </form>
+    </dialog>
+  </body>
+</html>

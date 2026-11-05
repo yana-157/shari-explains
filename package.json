@@ -1,0 +1,17 @@
+{
+  "name": "shari-explains",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A static editorial website and browser-based post studio for Shari Explains.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "studio": "node scripts/dev.mjs",
+    "category": "node scripts/category.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
