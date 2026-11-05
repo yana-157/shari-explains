@@ -421,6 +421,8 @@ p {
   font-size: calc(12px * var(--font-scale, 1));
   line-height: 1.9;
   padding-bottom: 5px;
+  max-width: 290px;
+  text-wrap: balance;
 }
 .archive-controls {
   display: flex;
@@ -1201,9 +1203,8 @@ p {
   }
   .section-heading > p {
     font-size: calc(12px * var(--font-scale, 1));
-  }
-  .section-heading > p br {
-    display: none;
+    max-width: none;
+    text-wrap: wrap;
   }
   .archive-controls {
     align-items: flex-start;
