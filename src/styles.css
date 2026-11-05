@@ -1251,7 +1251,7 @@ p {
   }
   .research-layout,
   .about-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 37px;
   }
   .research-layout > div > p:not(.eyebrow) {
@@ -1271,7 +1271,8 @@ p {
     padding: 31px;
   }
   .about-note p {
-    font-size: calc(40px * var(--font-scale, 1));
+    font-size: calc(clamp(30px, 10vw, 40px) * var(--font-scale, 1));
+    overflow-wrap: anywhere;
     margin: 33px 0;
   }
   .about-layout {
@@ -1290,9 +1291,6 @@ p {
     gap: 25px;
   }
   .request-star {
-    display: none;
-  }
-  .request-section h2 br {
     display: none;
   }
   .request-section h2 {
